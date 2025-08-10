@@ -5,22 +5,31 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import AdbIcon from '@mui/icons-material/Adb';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import Badge, { badgeClasses } from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
 
-
+  const CartBadge = styled(Badge)`
+  & .${badgeClasses.badge} {
+    top: -12px;
+    right: -6px;
+  }
+`;
 export default function header(){
+
+
+
     return (
         <>
         <Container maxWidth="xl">
-        <Toolbar disableGutters style={{background:"red"}}>
-          <LocalMallIcon/>
+        <Toolbar disableGutters >
+          <LocalMallIcon  sx={{fontSize:"27px"}}/>
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
@@ -32,6 +41,7 @@ export default function header(){
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              marginLeft:"10px"
             }}
           >
             SHOPPER
@@ -85,25 +95,51 @@ export default function header(){
               textDecoration: 'none',
             }}
           >
-            LOGO
+            
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display:"flex" ,alignItems:"center",justifyContent:"center"}}>
             
               <Button
                 // key={page}
                 // onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
               >
-                dddd
+                Shop
+              </Button>
+              <Button
+                // key={page}
+                // onClick={handleCloseNavMenu}
+                sx={{ my: 2,mx:2,color: 'black', display: 'block' ,fontSize:"20px"}}
+              >
+                Men
+              </Button>
+              <Button
+                // key={page}
+                // onClick={handleCloseNavMenu}
+                sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
+              >
+                Women
+              </Button>
+              <Button
+                // key={page}
+                // onClick={handleCloseNavMenu}
+                sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
+              >
+                Kids
               </Button>
             
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton  sx={{ p: 0 }}>
-                <ShoppingCartIcon/>
+          <Box sx={{ flexGrow: 0 ,my:1,mx:2}}>
+            <Button variant="outlined" size="medium" sx={{color:"black",border:"1px solid black",borderRadius:"15px",padding:"5px 24px"}}>
+              Login
+            </Button>
+            <Tooltip title="Your Shop" sx={{marginLeft:"16px"}}>
+              <IconButton>
+                <ShoppingCartOutlinedIcon fontSize="medium" />
+                <CartBadge badgeContent={1} color="primary" overlap="circular" />
               </IconButton>
             </Tooltip>
+            
           </Box>
         </Toolbar>
       </Container>
