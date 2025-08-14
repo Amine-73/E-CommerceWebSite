@@ -12,6 +12,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Badge, { badgeClasses } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
   const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
@@ -104,28 +105,28 @@ export default function header(){
                 // onClick={handleCloseNavMenu}
                 sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
               >
-                Shop
+                <Link to='/LandingPage' style={{textDecoration:"none",color:"#000"}}>Shop</Link> 
               </Button>
               <Button
                 // key={page}
                 // onClick={handleCloseNavMenu}
                 sx={{ my: 2,mx:2,color: 'black', display: 'block' ,fontSize:"20px"}}
               >
-                Men
+                <Link to='/Men' style={{textDecoration:"none",color:"#000"}}>Men</Link> 
               </Button>
               <Button
                 // key={page}
                 // onClick={handleCloseNavMenu}
                 sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
               >
-                Women
+                <Link to='/WoMen' style={{textDecoration:"none",color:"#000"}}>Women</Link> 
               </Button>
               <Button
                 // key={page}
                 // onClick={handleCloseNavMenu}
                 sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
               >
-                Kids
+                <Link to='/Kids' style={{textDecoration:"none",color:"#000"}}>Kids</Link> 
               </Button>
             
           </Box>
