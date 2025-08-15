@@ -135,6 +135,32 @@ export default function landingPage(){
 
 
 
+            
+
+            {/*============== {Start Section Exclusive Offers} ============*/}
+
+
+
+            {/* <section style={{background:"#A9A9A9"}}>
+                <div>
+                    <h1>Exclusive Offers For You</h1>
+                    <h3>ONLY ON BEST SELLERS PRODUCTS</h3>
+                </div>
+                <div>
+                        <Button variant="contained" sx={{background:"black",color:"whit",borderRadius:"20px",padding:"0px 30px",fontWeight:"bold"}}>Subscribe</Button>
+                </div>
+            </section> */}
+
+
+
+
+            {/*============== {End Section Exclusive Offers} ============*/}
+
+
+
+
+
+
             {/*============== {Start Section Popular in Children} ============*/}
             <section style={{margin:"100px 0px"}}>
                 <div style={{lineHeight:"1em"}}>

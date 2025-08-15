@@ -25,7 +25,7 @@ export default function header(){
 
 
     return (
-        <>
+        <section style={{borderBottom:"1px solid #A9A9A9"}}>
         <Container maxWidth="xl">
         <Toolbar disableGutters >
           <LocalMallIcon  sx={{fontSize:"27px"}}/>
@@ -105,7 +105,7 @@ export default function header(){
                 // onClick={handleCloseNavMenu}
                 sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
               >
-                <Link to='/LandingPage' style={{textDecoration:"none",color:"#000"}}>Shop</Link> 
+                <Link to='/' style={{textDecoration:"none",color:"#000"}}>Shop</Link> 
               </Button>
               <Button
                 // key={page}
@@ -144,6 +144,6 @@ export default function header(){
           </Box>
         </Toolbar>
       </Container>
-        </>
+        </section>
     )
 }
