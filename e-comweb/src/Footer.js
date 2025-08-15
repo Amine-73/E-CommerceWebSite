@@ -15,7 +15,7 @@ export default function Footer() {
     <>
       <Container >
         <section style={{margin:"80px 0px"}}>
-            <div style={{background:"#FA8072",padding:"70px",borderRadius:"30px"}}>
+            <div style={{background:'url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngkit.com%2Fpng%2Ffull%2F318-3182497_bg-background-gradient-fade-png.png&f=1&nofb=1&ipt=9d7e1baad1f5557ca010610e4a8ae988b3d9fb7f8bdcea4e51e3116976d9d804)',padding:"70px",borderRadius:"30px"}}>
                 <div style={{margin:"40px 0px"}}>
                 <h1 style={{fontSize:"50px",color:"#000"}}>Get Exclusive Offers On Your Email</h1>
                 <h3 style={{fontSize:"25px",color:"#fff"}}>Subscribe to our newsletter and stay updated</h3>
@@ -37,7 +37,11 @@ export default function Footer() {
                 </Box>
                 </div>
             </div>
-            <div style={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:"200px"}}>
+            
+
+        </section>
+
+        <div style={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:"200px"}}>
                     
                         <LocalMallIcon  sx={{fontSize:"59px"}}/>
                         <Typography
@@ -74,10 +78,6 @@ export default function Footer() {
                     <a href="https://LinkedIn.com" target="blank_3" style={{margin:"0px 6px"}}><LinkedInIcon style={{fontSize:"40px",color:"#000"}}/></a>
                     <a href="https://Facebook.com" target="blank_4" style={{margin:"0px 6px"}}><FacebookIcon style={{fontSize:"40px",color:"#000"}}/></a>
                 </div>
-
-        </section>
-
-        
             
 
       </Container>
