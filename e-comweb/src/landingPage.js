@@ -127,7 +127,7 @@ export default function landingPage(){
                             </Grid>
                         </Grid>
                         </Box>
-                    </Container>
+                    </Container>   
                 </div>
             </section>
 
@@ -140,16 +140,17 @@ export default function landingPage(){
             {/*============== {Start Section Exclusive Offers} ============*/}
 
 
-
-            {/* <section style={{background:"#A9A9A9"}}>
-                <div>
-                    <h1>Exclusive Offers For You</h1>
-                    <h3>ONLY ON BEST SELLERS PRODUCTS</h3>
-                </div>
-                <div>
-                        <Button variant="contained" sx={{background:"black",color:"whit",borderRadius:"20px",padding:"0px 30px",fontWeight:"bold"}}>Subscribe</Button>
-                </div>
-            </section> */}
+            <Container>    
+                <section style={{borderRadius:"30px",background:"url(https://img.freepik.com/free-photo/beautiful-coquettish-woman-trendy-dress-make-up-looking-thoughtful-aside-gazing-up-with-dreamy-smile-playing-with-hair-standing-against-pink-background_1258-123305.jpg?semt=ais_hybrid&w=740&q=80)",backgroundRepeat:"no-repeat",backgroundSize:"cover",padding:"35px 70px"}}>
+                    <div style={{textAlign:"left",width:"50%"}}>
+                        <h1 style={{fontSize:"60px",}}>Exclusive Offers For You</h1>
+                        <h3 style={{fontSize:"20px",fontFamily:"serif"}}>ONLY ON BEST SELLERS PRODUCTS</h3>
+                    </div>
+                    <div style={{textAlign:"left"}}>
+                            <Button variant="contained" sx={{background:"black",color:"whit",borderRadius:"20px",padding:"16px 40px",fontWeight:"bold"}}>Subscribe</Button>
+                    </div>
+                </section>
+            </Container>
 
 
 
