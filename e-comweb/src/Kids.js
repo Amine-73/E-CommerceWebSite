@@ -18,8 +18,8 @@ export default function Kids(){
     return (
         <>
         <Header/>
-            <Container>
-                <section>
+            <Container sx={{display:"inline-block"}}>
+                <section style={{marginTop:"90px"}}>
                     <Card sx={{ display: 'flex' ,margin:"30px 0px",borderRadius:"30px",background:'url(https://img.freepik.com/free-photo/interested-gentle-tender-young-s-ginger-woman-red-warm-sweater-pointing-looking-upper-left_1258-142103.jpg?semt=ais_hybrid&w=740&q=80)',backgroundSize:"cover",height:"auto",backgroundRepeat:"no-repeat"}}>
                         <Grid container spacing={2} sx={{width:"100%"}}>
                             <Grid size={8} style={{display:"flex",}}>

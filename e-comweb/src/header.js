@@ -25,7 +25,7 @@ export default function header(){
 
 
     return (
-        <section style={{borderBottom:"1px solid #A9A9A9"}}>
+        <section style={{borderBottom:"1px solid #A9A9A9",background:"#ffff",position:"fixed",width:"100%",zIndex:"99"}}>
         <Container maxWidth="xl">
         <Toolbar disableGutters >
           <LocalMallIcon  sx={{fontSize:"27px"}}/>
@@ -42,7 +42,8 @@ export default function header(){
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              marginLeft:"10px"
+              marginLeft:"10px",
+              color:"black",
             }}
           >
             SHOPPER
