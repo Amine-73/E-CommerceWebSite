@@ -12,8 +12,38 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { useContext } from "react";
+import Dataproduct from "./AllData/Data";
+import { Link } from "react-router-dom";
 
 export default function Men(){
+    const Data=useContext(Dataproduct);
+    const AllDataMen=Data.AllDatMen;
+    const products=AllDataMen.map((event)=>{
+        return(
+        <Grid key={event.id}  size={3}>
+                                <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
+                                    <Link to='/product'><CardMedia
+                                        component="img"
+                                        height="404"
+                                        image={event.image}
+                                        alt="Clothes"
+                                        // style={{backgroundImage:`url()`}}
+                                    /></Link>
+                                    <CardContent>
+                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
+                                        {event.image}
+                                        </Typography>
+                                    </CardContent>
+                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
+                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>{event.lowPrice}</Typography>
+                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{event.heightPrice}</Typography>
+                                    </div>
+                                    </Card>
+        </Grid>
+        )
+    })
+
     return (
         <>
             <Header/>
@@ -38,258 +68,7 @@ export default function Men(){
                     </div>
                     <Box  sx={{ width: '100%' ,margin:"50px 0px"}}>
                         <Grid  container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                            <Grid  size={3}>
-                                <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/58/1279072/1.jpg?5578"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>$180</Typography>
-                                    </div>
-                                    </Card>
-                            </Grid>
-                            <Grid size={3}>
-                                <Card sx={{ maxWidth: 400 ,cursor:"pointer"}}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://i.pinimg.com/236x/94/1e/b7/941eb773d4de289124497ece181f3d9d.jpg"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary' ,fontSize:"15px",fontWeight:"bold",textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                </Card>
-                            </Grid>
-                            <Grid size={3}>
-                                <Card sx={{ maxWidth: 400 ,cursor:"pointer"}}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QFutiU9xa23VqhTo5zoe-b4Ie5ND2b9-CqF761_RrDe94YcDL7SaW_VYI5qwuNFQOAY&usqp=CAU"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                </Card>
-                            </Grid>
-                            <Grid size={3}>
-                            <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRotpjgfwJc8fw7E51ZPn_YfYyETN5xHujgaw&s"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                    </Card>
-                            </Grid>
-                        </Grid>
-                        </Box>
-
-
-
-                        <Box  sx={{ width: '100%' ,margin:"50px 0px"}}>
-                        <Grid  container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                            <Grid  size={3}>
-                                <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/58/1279072/1.jpg?5578"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>$180</Typography>
-                                    </div>
-                                    </Card>
-                            </Grid>
-                            <Grid size={3}>
-                                <Card sx={{ maxWidth: 400 ,cursor:"pointer"}}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://i.pinimg.com/236x/94/1e/b7/941eb773d4de289124497ece181f3d9d.jpg"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary' ,fontSize:"15px",fontWeight:"bold",textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                </Card>
-                            </Grid>
-                            <Grid size={3}>
-                                <Card sx={{ maxWidth: 400 ,cursor:"pointer"}}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QFutiU9xa23VqhTo5zoe-b4Ie5ND2b9-CqF761_RrDe94YcDL7SaW_VYI5qwuNFQOAY&usqp=CAU"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                </Card>
-                            </Grid>
-                            <Grid size={3}>
-                            <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRotpjgfwJc8fw7E51ZPn_YfYyETN5xHujgaw&s"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                    </Card>
-                            </Grid>
-                        </Grid>
-                        </Box>
-
-                        <Box  sx={{ width: '100%' ,margin:"50px 0px"}}>
-                        <Grid  container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                            <Grid  size={3}>
-                                <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/58/1279072/1.jpg?5578"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>$180</Typography>
-                                    </div>
-                                    </Card>
-                            </Grid>
-                            <Grid size={3}>
-                                <Card sx={{ maxWidth: 400 ,cursor:"pointer"}}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://i.pinimg.com/236x/94/1e/b7/941eb773d4de289124497ece181f3d9d.jpg"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary' ,fontSize:"15px",fontWeight:"bold",textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                </Card>
-                            </Grid>
-                            <Grid size={3}>
-                                <Card sx={{ maxWidth: 400 ,cursor:"pointer"}}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QFutiU9xa23VqhTo5zoe-b4Ie5ND2b9-CqF761_RrDe94YcDL7SaW_VYI5qwuNFQOAY&usqp=CAU"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                </Card>
-                            </Grid>
-                            <Grid size={3}>
-                            <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <CardMedia
-                                        component="img"
-                                        height="404"
-                                        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRotpjgfwJc8fw7E51ZPn_YfYyETN5xHujgaw&s"
-                                        alt="Clothes"
-                                        // style={{backgroundImage:`url()`}}
-                                    />
-                                    <CardContent>
-                                        <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start" }}>
-                                        Boys Orange Colourblocked Hooded Sweatshirt
-                                        </Typography>
-                                    </CardContent>
-                                    <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                        <Typography style={{fontWeight:"bold",fontSize:"19px"}}>$77</Typography>
-                                        <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}>$180</Typography>
-                                    </div>
-                                    </Card>
-                            </Grid>
+                            {products}
                         </Grid>
                         </Box>
                 </section>

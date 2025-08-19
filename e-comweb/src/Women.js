@@ -24,7 +24,7 @@ export default function Women(){
 
     const Products=DataWomen.map((t)=>{
         return(
-            <Grid  size={3}>
+            <Grid key={t.id}  size={3}>
                                 <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
                                     <CardMedia
                                         component="img"
