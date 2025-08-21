@@ -14,6 +14,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useContext } from "react";
 import Dataproduct from "./AllData/Data";
+import { Link } from "react-router-dom";
 
 
 
@@ -26,13 +27,13 @@ export default function Women(){
         return(
             <Grid key={t.id}  size={3}>
                                 <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <CardMedia
+                                    <Link to={`/women/${t.id}`}><CardMedia
                                         component="img"
                                         height="404"
                                         image={t.image}
                                         alt="Clothes"
                                         // style={{backgroundImage:`url()`}}
-                                    />
+                                    /></Link>
                                     <CardContent>
                                         <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
                                         {t.name}
