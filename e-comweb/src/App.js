@@ -8,7 +8,8 @@ import Login from './loginPage';
 import SingUp from './SingUp';
 import { useContext } from "react";
 import Dataproduct from "./AllData/Data";
-
+import MenProductDetail from './MenProductDetail';
+import WomenProductDetail from './womenProductDetail'
 
 function App() {
   const Data=useContext(Dataproduct)
@@ -19,10 +20,14 @@ function App() {
         <Route path='/'   element={<LandingPage/>}/>
         <Route path='/Men' element={<Men/>}/>
         <Route path='/Women' element={<Women/>}/>
+        <Route path='/Women/:WomenId' element={<WomenProductDetail/>}/>
         <Route path='/Kids' element={<Kids/>}/>
+        <Route path='/Men/:productId' element={<MenProductDetail/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/SingUp' element={<SingUp/>}/>
-      </Routes></Dataproduct.Provider>
+        <Route path=''/>
+      </Routes>
+      </Dataproduct.Provider>
     </div>
   );
 }

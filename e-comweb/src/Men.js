@@ -23,22 +23,22 @@ export default function Men(){
         return(
         <Grid key={event.id}  size={3}>
                                 <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                    <Link to='/product'><CardMedia
+                                    <Link to={`/Men/${event.id}`}><CardMedia
                                         component="img"
                                         height="404"
                                         image={event.image}
                                         alt="Clothes"
                                         // style={{backgroundImage:`url()`}}
-                                    /></Link>
+                                    />
                                     <CardContent>
                                         <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
-                                        {event.image}
+                                        {event.name}
                                         </Typography>
                                     </CardContent>
                                     <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
                                         <Typography style={{fontWeight:"bold",fontSize:"19px"}}>{event.lowPrice}</Typography>
                                         <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{event.heightPrice}</Typography>
-                                    </div>
+                                    </div></Link>
                                     </Card>
         </Grid>
         )

@@ -14,6 +14,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { useContext } from "react";
 import Dataproduct from "./AllData/Data";
+import Link from "@mui/material/Link";
 
 
 export default function Kids(){
@@ -22,7 +23,8 @@ export default function Kids(){
 
     const products=AllDataKids.map((even)=>{
         return(
-            <Grid  key={even.id} size={3} sx={{marginBottom:"25px"}}>
+            
+            <Grid   key={even.id} size={3} sx={{marginBottom:"25px"}}>
                                 <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
                                 <CardMedia
                                         component="img"
@@ -41,9 +43,14 @@ export default function Kids(){
                                 <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{even.heightPrice}</Typography>
                             </div>
                             </Card>
+                            
             </Grid>
         )
     })
+
+
+    
+
     return (
         <>
         <Header/>
