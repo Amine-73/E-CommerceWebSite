@@ -29,7 +29,7 @@ export default function Men(){
                                         image={event.image}
                                         alt="Clothes"
                                         // style={{backgroundImage:`url()`}}
-                                    />
+                                    /></Link>
                                     <CardContent>
                                         <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
                                         {event.name}
@@ -38,7 +38,7 @@ export default function Men(){
                                     <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
                                         <Typography style={{fontWeight:"bold",fontSize:"19px"}}>{event.lowPrice}</Typography>
                                         <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{event.heightPrice}</Typography>
-                                    </div></Link>
+                                    </div>
                                     </Card>
         </Grid>
         )

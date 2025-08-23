@@ -1,4 +1,5 @@
 import { createContext } from "react"
+import { v4 as uuidv4 } from 'uuid';
 
 let Dataproduct=createContext(
     {
@@ -251,77 +252,77 @@ let Dataproduct=createContext(
         ],
         AllDatMen:[
             {
-                id:1,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/58/1279072/1.jpg?5578`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:2,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://i.pinimg.com/236x/94/1e/b7/941eb773d4de289124497ece181f3d9d.jpg`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:3,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QFutiU9xa23VqhTo5zoe-b4Ie5ND2b9-CqF761_RrDe94YcDL7SaW_VYI5qwuNFQOAY&usqp=CAU`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:4,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRotpjgfwJc8fw7E51ZPn_YfYyETN5xHujgaw&s`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:5,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/58/1279072/1.jpg?5578`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:6,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://i.pinimg.com/236x/94/1e/b7/941eb773d4de289124497ece181f3d9d.jpg`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:7,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRotpjgfwJc8fw7E51ZPn_YfYyETN5xHujgaw&s`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:8,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/58/1279072/1.jpg?5578`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:9,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://i.pinimg.com/236x/94/1e/b7/941eb773d4de289124497ece181f3d9d.jpg`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:10,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QFutiU9xa23VqhTo5zoe-b4Ie5ND2b9-CqF761_RrDe94YcDL7SaW_VYI5qwuNFQOAY&usqp=CAU`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:11,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRotpjgfwJc8fw7E51ZPn_YfYyETN5xHujgaw&s`,
                 lowPrice:"78.33$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             },{
-                id:12,
+                id:uuidv4(),
                 name:"Boys Orange Colourblocked Hooded Sweatshirt",
                 image:`https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/58/1279072/1.jpg?5578`,
                 lowPrice:"32,31$",
-                heightPrice:"108.33$$"
+                heightPrice:"108.33$"
             }
         ]
     }

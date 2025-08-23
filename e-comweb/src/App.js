@@ -19,10 +19,10 @@ function App() {
       <Routes>
         <Route path='/'   element={<LandingPage/>}/>
         <Route path='/Men' element={<Men/>}/>
+        <Route path='/Men/:productId' element={<MenProductDetail/>}/>
         <Route path='/Women' element={<Women/>}/>
         <Route path='/Women/:WomenId' element={<WomenProductDetail/>}/>
         <Route path='/Kids' element={<Kids/>}/>
-        <Route path='/Men/:productId' element={<MenProductDetail/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/SingUp' element={<SingUp/>}/>
         <Route path=''/>
