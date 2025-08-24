@@ -13,53 +13,27 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Footer from "./Footer";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Dataproduct from "./AllData/Data";
+import { Link } from "react-router-dom";
 
 export default function LandingPage(){
 
     const MyData=useContext(Dataproduct);
-    const MyDataWomen=MyData.Women;
-    const MyDataChildren=MyData.Children;
-    const productsWomen=MyDataWomen.map((t)=>{
-        return(
+    const [myProduct,setMyProduct]=useState(MyData)
+    const productsWomen=myProduct.map((t)=>{
+        if(t.category==="WomenCatalogue"){
+            return(
                                 <Grid key={t.id}  size={3}>
                                         <Card  sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                            <CardMedia
+                                            <Link to={'/Women'}><CardMedia
                                                 component="img"
                                                 height="404"
                                                 image={t.image}
                                                 alt="Clothes"
                                                 // style={{backgroundImage:`url()`}}
                                                 
-                                            />
-                                            <CardContent>
-                                                <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
-                                                {t.name}
-                                                </Typography>
-                                            </CardContent>
-                                            <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                                <Typography style={{fontWeight:"bold",justifyContent:"center",fontSize:"19px"}}>{t.lowprice}</Typography>
-                                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{t.heightPrice}</Typography>
-                                            </div>
-                                        </Card>
-                                    </Grid>                    
-            
-        )
-    })
-
-     const productsChildren=MyDataChildren.map((t)=>{
-        return(
-                                <Grid key={t.id}  size={3}>
-                                        <Card  sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                            <CardMedia
-                                                component="img"
-                                                height="404"
-                                                image={t.image}
-                                                alt="Clothes"
-                                                // style={{backgroundImage:`url()`}}
-                                                
-                                            />
+                                            /></Link>
                                             <CardContent>
                                                 <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
                                                 {t.name}
@@ -73,6 +47,37 @@ export default function LandingPage(){
                                     </Grid>                    
             
         )
+        }
+        
+    })
+
+    const productsChildren=myProduct.map((t)=>{
+        if(t.category==="ChildrenCatalogue"){
+        return(
+                                <Grid key={t.id}  size={3}>
+                                        <Card  sx={{ maxWidth: 400,cursor:"pointer" }}>
+                                            <Link to={'/Kids'}><CardMedia
+                                                component="img"
+                                                height="404"
+                                                image={t.image}
+                                                alt="Clothes"
+                                                // style={{backgroundImage:`url()`}}
+                                                
+                                            /></Link>
+                                            <CardContent>
+                                                <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
+                                                {t.name}
+                                                </Typography>
+                                            </CardContent>
+                                            <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
+                                                <Typography style={{fontWeight:"bold",justifyContent:"center",fontSize:"19px"}}>{t.lowPrice}</Typography>
+                                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{t.heightPrice}</Typography>
+                                            </div>
+                                        </Card>
+                                    </Grid>                    
+            
+        )
+        }
     })
 
 
@@ -91,7 +96,7 @@ export default function LandingPage(){
                         <h1 style={{fontSize:"72px",textAlign:"start"}}>New 👋​ Collections for Everyone</h1>
                     </div>
                     <div style={{textAlign:"start"}}>
-                        <Button style={{padding:"10px 40px",fontSize:"18px",borderRadius:"18px",background:"#00008B"}}  variant="contained">Last Collection <ArrowForwardIcon style={{fontSize:"26px"}}/></Button>
+                        <Link to={'/Login'}><Button style={{padding:"10px 40px",fontSize:"18px",borderRadius:"18px",background:"#00008B"}}  variant="contained">Last Collection <ArrowForwardIcon style={{fontSize:"26px"}}/></Button></Link>
                     </div>
                 </div>
             </section>
@@ -133,7 +138,7 @@ export default function LandingPage(){
             {/*============== {Start Section Popular in Children} ============*/}
             <section style={{margin:"100px 0px"}}>
                 <div style={{lineHeight:"1em"}}>
-                        <h1 style={{textAlign:"center",textTransform:"uppercase",fontSize:"40px"}}>Popular in women</h1>
+                        <h1 style={{textAlign:"center",textTransform:"uppercase",fontSize:"40px"}}>Popular in Children</h1>
                         <hr style={{width:"200px",height:"4px",background:"black",marginBottom:"60px",borderRadius:"10px"}}></hr>
                 </div>
 
@@ -153,7 +158,7 @@ export default function LandingPage(){
             {/* ==========={Start Footer} ================== */}
 
             <Footer/>
-            
+
             {/* ==========={End Footer} ================== */}
 
         </>

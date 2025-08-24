@@ -9,21 +9,19 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Header from "./header";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Dataproduct from "./AllData/Data";
-import { useEffect } from "react";
+
 
 export default function Product(){
   const {productId}=useParams();
   const Data=useContext(Dataproduct);
-  const MenData=Data.AllDatMen;
-
-  const MyProduct=MenData.find((e)=>e.id===productId);
-  
-  useEffect(()=>{
-    
-  },[ ])
-
+  // const [MyProduct,setMyProduct]=useState(null)
+  const  MyProduct=Data.find((e)=>e.id===productId);
+  // useEffect(()=>{
+  //   const  MyProduct=MenData.find((e)=>e.id===productId);
+  //   setMyProduct(foundProduct);
+  // },[ ])
   const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   gap: '2rem',
   [`& .${toggleButtonGroupClasses.firstButton}, & .${toggleButtonGroupClasses.middleButton}`]:

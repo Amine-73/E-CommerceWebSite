@@ -21,9 +21,10 @@ import { Link } from "react-router-dom";
 
 export default function Women(){
     const Data=useContext(Dataproduct);
-    const DataWomen=Data.AllDataWomen;
 
-    const Products=DataWomen.map((t)=>{
+
+    const Products=Data.map(t=>{
+    if(t.category==="Women"){
         return(
             <Grid key={t.id}  size={3}>
                                 <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
@@ -46,6 +47,7 @@ export default function Women(){
                                     </Card>
             </Grid>
         )
+    }
     })
 
 

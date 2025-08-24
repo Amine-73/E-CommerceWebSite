@@ -12,40 +12,44 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import Dataproduct from "./AllData/Data";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
+
 
 
 export default function Kids(){
     const Data=useContext(Dataproduct);
-    const AllDataKids=Data.AllDataKids;
+    const [myData,setMyData]=useState(Data)
 
-    const products=AllDataKids.map((even)=>{
-        return(
+    const products=myData.map((event)=>{
+        if(event.category==="Kids"){
+            return(
             
-            <Grid   key={even.id} size={3} sx={{marginBottom:"25px"}}>
+            <Grid   key={event.id} size={3} sx={{marginBottom:"25px"}}>
                                 <Card sx={{ maxWidth: 400,cursor:"pointer" }}>
-                                <CardMedia
+                                <Link to={`/Kids/${event.id}`}><CardMedia
                                         component="img"
                                         height="404"
-                                        image={even.image}
+                                        image={event.image}
                                         alt="Clothes"
                                         // style={{backgroundImage:`url()`}}
-                                    />    
+                                    /></Link>
                                 <CardContent>
                                 <Typography variant="body2" sx={{ color: 'text.secondary',fontSize:"15px",fontWeight:"bold" ,textAlign:"start"}}>
-                                    {even.name}
+                                    {event.name}
                                 </Typography>
                             </CardContent>
                             <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
-                                <Typography style={{fontWeight:"bold",fontSize:"19px"}}>{even.lowPrice}</Typography>
-                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{even.heightPrice}</Typography>
+                                <Typography style={{fontWeight:"bold",fontSize:"19px"}}>{event.lowPrice}</Typography>
+                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{event.heightPrice}</Typography>
                             </div>
                             </Card>
                             
             </Grid>
         )
+        }
+        
     })
 
 
