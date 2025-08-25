@@ -12,7 +12,7 @@ import CardContent from '@mui/material/CardContent';
 
 import Typography from '@mui/material/Typography';
 import Footer from "./Footer";
-
+import TextField from "@mui/material/TextField";
 import { useContext, useState } from "react";
 import Dataproduct from "./AllData/Data";
 import { Link } from "react-router-dom";
@@ -109,7 +109,7 @@ export default function LandingPage(){
                         <h1 style={{textAlign:"center",textTransform:"uppercase",fontSize:"40px"}}>Popular in women</h1>
                         <hr style={{width:"200px",height:"4px",background:"black",marginBottom:"60px",borderRadius:"10px"}}></hr>
                     </div>
-                    <Container maxWidth="lg">
+                    <Container maxWidth="xl">
                         <Box  sx={{ width: '100%' }}>
                         <Grid  container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             {productsWomen}
@@ -122,7 +122,7 @@ export default function LandingPage(){
             {/*============== {End Section Popular in Women} ============*/}
 
             {/*============== {Start Section Exclusive Offers} ============*/}
-            <Container>    
+            <Container maxWidth="xl">    
                 <section style={{borderRadius:"30px",background:"url(https://img.freepik.com/free-photo/beautiful-coquettish-woman-trendy-dress-make-up-looking-thoughtful-aside-gazing-up-with-dreamy-smile-playing-with-hair-standing-against-pink-background_1258-123305.jpg?semt=ais_hybrid&w=740&q=80)",backgroundRepeat:"no-repeat",backgroundSize:"cover",padding:"35px 70px"}}>
                     <div style={{textAlign:"left",width:"50%"}}>
                         <h1 style={{fontSize:"60px",}}>Exclusive Offers For You</h1>
@@ -143,7 +143,7 @@ export default function LandingPage(){
                 </div>
 
                 <div>
-                    <Container maxWidth="lg">
+                    <Container maxWidth="xl">
                         <Box  sx={{ width: '100%' }}>
                         <Grid  container spacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             {productsChildren}
@@ -154,6 +154,34 @@ export default function LandingPage(){
                 
             </section>
             {/*============== {End Section Popular in Children} ============*/}
+            <Container maxWidth="xl">
+            <section style={{margin:"80px 0px"}}>
+            <div style={{background:'url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngkit.com%2Fpng%2Ffull%2F318-3182497_bg-background-gradient-fade-png.png&f=1&nofb=1&ipt=9d7e1baad1f5557ca010610e4a8ae988b3d9fb7f8bdcea4e51e3116976d9d804)',padding:"70px",borderRadius:"30px"}}>
+                <div style={{margin:"40px 0px"}}>
+                <h1 style={{fontSize:"50px",color:"#000"}}>Get Exclusive Offers On Your Email</h1>
+                <h3 style={{fontSize:"25px",color:"#fff"}}>Subscribe to our newsletter and stay updated</h3>
+                </div>
+                <div>
+                <Box
+                    component="form"
+                    sx={{ "& > :not(style)": { m: 1, width: "60%" },display:"flex",alignItems:"center",justifyContent:"center",marginLeft:"70px"}}
+                    
+                >
+                    <Grid container spacing={3} sx={{display:"flex",justifyContent:"center"}}>
+                        <Grid size={8}>
+                            <TextField style={{borderRadius:"60px"}} fullWidth label="Your Email Id" id="fullWidth" />
+                        </Grid>
+                        <Grid size={4} sx={{display:"flex"}}>
+                            <Button variant="contained" sx={{background:"black",color:"whit",borderRadius:"20px",padding:"0px 30px",fontWeight:"bold"}}>Subscribe</Button>
+                        </Grid>
+                    </Grid>
+                </Box>
+                </div>
+            </div>
+            
+
+        </section>
+        </Container>
 
             {/* ==========={Start Footer} ================== */}
 

@@ -13,15 +13,26 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import Badge, { badgeClasses } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
   const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
     top: -12px;
     right: -6px;
-  }
-`;
-export default function header(){
+  }`;
 
+  function AddItem(){
+
+  }
+
+export default function Header({myItem}){
+
+  
+  const [index,setIndex]=useState(0)
+  useEffect(()=>{
+    setIndex(myItem)
+  },[myItem])
+  
 
 
     return (
@@ -138,7 +149,9 @@ export default function header(){
             <Tooltip title="Your Shop" sx={{marginLeft:"16px"}}>
               <IconButton>
                 <ShoppingCartOutlinedIcon fontSize="medium" />
-                <CartBadge badgeContent={1} color="primary" overlap="circular" />
+                <Link to='/Cart'>
+                <CartBadge badgeContent={index} color="primary" overlap="circular" />
+                </Link>
               </IconButton>
             </Tooltip>
             

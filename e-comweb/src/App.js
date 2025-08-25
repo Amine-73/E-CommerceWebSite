@@ -9,6 +9,7 @@ import SingUp from "./SingUp";
 import { useContext, useState } from "react";
 import Dataproduct from "./AllData/Data";
 import MenProductDetail from "./DataProducts";
+import Cart from "./Cart";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
               <Route key={path} path={path} element={<MenProductDetail />} />
             ))
           }
-          
+          <Route path="/Cart" element={<Cart/>}/>
           <Route path="/Women" element={<Women />} />
           <Route path="/Kids" element={<Kids />} />
           <Route path="/Login" element={<Login />} />

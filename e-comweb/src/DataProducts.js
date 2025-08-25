@@ -11,13 +11,16 @@ import Header from "./header";
 import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import Dataproduct from "./AllData/Data";
+import Footer from "./Footer";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 
 export default function Product(){
   const {productId}=useParams();
   const Data=useContext(Dataproduct);
   // const [MyProduct,setMyProduct]=useState(null)
-  const  MyProduct=Data.find((e)=>e.id===productId);
+  const  MyProduct=Data.find((e)=>e.id===Number(productId));
   // useEffect(()=>{
   //   const  MyProduct=MenData.find((e)=>e.id===productId);
   //   setMyProduct(foundProduct);
@@ -41,9 +44,16 @@ export default function Product(){
     },
 }));
 
+const [item,setItem]=useState(0);
+
+function handlAddItem(){
+  setItem(a=>a+1)
+}
+
   return (
-    <div style={{display:'flex'}}>
-    <Header/>
+    <>
+      <div style={{display:'flex'}}>
+    <Header myItem={item}/>
     <section style={{display:"flex",alignItems:"center",justifyContent:"center",alignContent:"center",alignmentBaseline:"central",margin:"5% auto"}}>
       <Box sx={{ flexGrow: 1,margin:"30px 15%" }}>
         <Grid container spacing={5}>
@@ -96,18 +106,41 @@ export default function Product(){
                   </StyledToggleButtonGroup>
                   
                 </div>
-                <Button variant="contained" sx={{margin:"20px 0px",padding:"10px 30px",background:"red"}}>Add To Cart</Button>
+                <Button onClick={handlAddItem} variant="contained" sx={{margin:"20px 0px",padding:"10px 30px",background:"red"}}>Add To Cart</Button>
                 <div>
-                  <p><span style={{fontWeight:"bold"}}>Category :</span>Women,T-shirt ,Crop Top</p>
-                  <p><span style={{fontWeight:"bold"}}>Tags :</span> Modern,Latest</p>
+                  <p><span style={{fontWeight:"bold"}}>Category :</span> {MyProduct.category} ,T-shirt ,Crop Top</p>
+                  <p><span style={{fontWeight:"bold"}}>Tags :</span> Modern ,Latest</p>
                 </div>
               </div>
             </Grid>
             
         </Grid>
         </Box>
+        
     </section>
+    
     </div>
+    {/* <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs  onChange={""} aria-label="basic tabs example">
+          <Tab label="Item One" {...a11yProps(0)} />
+          <Tab label="Item Two" {...a11yProps(1)} />
+          <Tab label="Item Three" {...a11yProps(2)} />
+        </Tabs>
+      </Box>
+      <CustomTabPanel value={value} index={0}>
+        Item One
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        Item Two
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+        Item Three
+      </CustomTabPanel>
+    </Box> */}
+    <Footer/>
+    </>
+    
   );
 };
 
