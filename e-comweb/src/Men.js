@@ -24,8 +24,8 @@ export default function Men() {
     if (event.category === "Men") {
       return (
         <Grid key={event.id} size={3}>
-          <Card sx={{ maxWidth: 400, cursor: "pointer" }}>
-            <Link to={`/Men/${event.id}`}>
+          <Card sx={{ maxWidth: 400, cursor: "pointer" }} >
+            <Link to={`/Men/${event.id}`} >
               <CardMedia
                 component="img"
                 height="404"
@@ -55,7 +55,7 @@ export default function Men() {
               }}
             >
               <Typography style={{ fontWeight: "bold", fontSize: "19px" }}>
-                {event.lowPrice}
+                ${event.lowPrice}
               </Typography>
               <Typography
                 sx={{
@@ -66,7 +66,7 @@ export default function Men() {
                 }}
                 disbled
               >
-                {event.heightPrice}
+                ${event.heightPrice}
               </Typography>
             </div>
           </Card>
