@@ -10,6 +10,7 @@ import { useContext, useState } from "react";
 import Dataproduct from "./AllData/Data";
 import MenProductDetail from "./DataProducts";
 import Cart from "./Cart";
+import {CartProvider} from "./Contexts/CartContext";
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
   return (
     <div className="App">
       <Dataproduct.Provider value={myData}>
+        
+        <CartProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/Men" element={<Men />} />
@@ -27,13 +30,13 @@ function App() {
               <Route key={path} path={path} element={<MenProductDetail />} />
             ))
           }
-          <Route path="/Cart" element={<Cart/>}/>
+          <Route path="/Cart" element={<Cart />} />
           <Route path="/Women" element={<Women />} />
           <Route path="/Kids" element={<Kids />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SingUp" element={<SingUp />} />
           <Route path="" />
-        </Routes>
+        </Routes></CartProvider>
       </Dataproduct.Provider>
     </div>
   );
