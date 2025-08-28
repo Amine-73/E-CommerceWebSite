@@ -64,7 +64,7 @@ export default function Men() {
                   color: "#A9A9A9",
                   fontSize: "19px",
                 }}
-                disbled
+                
               >
                 ${event.heightPrice}
               </Typography>

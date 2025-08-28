@@ -30,7 +30,7 @@ export default function Header({myItem}){
   useEffect(()=>{
     setIndex(myItem)
   },[myItem])
-  const {totalQuantity } = useContext(CartContext);
+  const {totalQuantity ,Quantity} = useContext(CartContext);
   
 
 

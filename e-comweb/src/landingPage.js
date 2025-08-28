@@ -41,7 +41,7 @@ export default function LandingPage(){
                                             </CardContent>
                                             <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
                                                 <Typography style={{fontWeight:"bold",justifyContent:"center",fontSize:"19px"}}>{t.lowPrice}</Typography>
-                                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{t.heightPrice}</Typography>
+                                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}}  >{t.heightPrice}</Typography>
                                             </div>
                                         </Card>
                                     </Grid>                    
@@ -71,7 +71,7 @@ export default function LandingPage(){
                                             </CardContent>
                                             <div style={{display:'flex',margin:"7px 30px",justifyContent:"center"}}>
                                                 <Typography style={{fontWeight:"bold",justifyContent:"center",fontSize:"19px"}}>{t.lowPrice}</Typography>
-                                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} disbled>{t.heightPrice}</Typography>
+                                                <Typography sx={{marginLeft:"15px",textDecoration:"line-through red",color:"#A9A9A9",fontSize:"19px"}} >{t.heightPrice}</Typography>
                                             </div>
                                         </Card>
                                     </Grid>                    
