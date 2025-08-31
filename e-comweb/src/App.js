@@ -5,7 +5,6 @@ import Men from "./Men";
 import Women from "./Women";
 import Kids from "./Kids";
 import Login from "./loginPage";
-import SingUp from "./SingUp";
 import { useContext, useState } from "react";
 import Dataproduct from "./AllData/Data";
 import MenProductDetail from "./DataProducts";
@@ -34,7 +33,6 @@ function App() {
           <Route path="/Women" element={<Women />} />
           <Route path="/Kids" element={<Kids />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/SingUp" element={<SingUp />} />
           <Route path="" />
         </Routes></CartProvider>
       </Dataproduct.Provider>
