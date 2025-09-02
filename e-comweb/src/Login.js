@@ -8,9 +8,13 @@ import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import { useState } from "react";
+import BasicModal from "./Modul";
+
+
 
 export default function Login() {
   const [name, setName] = useState("Login");
+  const [open,setOpen]=useState(false)
   const [AllInput, setALLInput] = useState({
     name: "",
     Email: "",
@@ -18,6 +22,8 @@ export default function Login() {
   });
   const myList = [
     { id: 1, name: "Amine", Email: "amine@gmail.com", password: "123123" },
+    { id: 2, name: "mohammed", Email: "mohammed@gmail.com", password: "000000" },
+    { id: 3, name: "mohammed", Email: "mohammed@gmail.com", password: "000000" }
   ];
   function handlSignUp() {
     if (name === "Login") {
@@ -26,8 +32,21 @@ export default function Login() {
       setName("Login");
     }
   }
+  
+  function handleCheck(){
+    setOpen(true)
+  }
+
+
+
+  
+
+
+
+
   return (
     <>
+    <BasicModal status={{open,setOpen}}/>
       <Header />
       <section
         style={{ height: "auto", background: "#FFB6C1", display: "flex" }}
@@ -40,6 +59,9 @@ export default function Login() {
               margin: "15% auto",
               padding: "75px 40px",
               borderRadius: "20px",
+            }}
+            onSubmit={event=>{
+              event.preventDefault()
             }}
           >
             <Grid container spacing={2} sx={{ textAlign: "left" }}>
@@ -108,6 +130,7 @@ export default function Login() {
                     AllInput.password.length === 0 ||
                     (name === "Login" ? "" : AllInput.name.length === 0)
                   }
+                  onClick={handleCheck}
                 >
                   Continue
                 </Button>
@@ -135,6 +158,7 @@ export default function Login() {
                   <FormControlLabel
                     control={<Checkbox />}
                     label="By continuiing, i gree to the Terms Of use & privacy Policy"
+                    required
                   />
                 </FormGroup>
               </Grid>
