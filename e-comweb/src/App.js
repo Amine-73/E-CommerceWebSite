@@ -10,7 +10,6 @@ import Dataproduct from "./AllData/Data";
 import MenProductDetail from "./DataProducts";
 import Cart from "./Cart";
 import {CartProvider} from "./Contexts/CartContext";
-import BasicModal from "./Modul";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -53,9 +52,9 @@ function App() {
   
   return (
     <div className="App">
-      {/* <Dataproduct.Provider value={myData}>  */}
+      <Dataproduct.Provider value={myData}> 
         
-        {/* <CartProvider>
+        <CartProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/Men" element={<Men />} />
@@ -67,12 +66,12 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Women" element={<Women />} />
           <Route path="/Kids" element={<Kids />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Login" element={<Login  setOpen={setOpen} setLoginStatus={setLoginStatus} />} />
           <Route path="" />
         </Routes></CartProvider>
 
           {/* Les fonctions de modification de l'état sont passées comme props au composant enfant Login */}
-        <Login setOpen={setOpen} setLoginStatus={setLoginStatus} />
+        
         {/* La prop 'open' est passée à la modale pour la contrôler */}
         <Modal
           open={open}
@@ -90,7 +89,7 @@ function App() {
           </Box>
         </Modal>
 
-      {/* </Dataproduct.Provider> */}
+      </Dataproduct.Provider>
 
         
 

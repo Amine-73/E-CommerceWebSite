@@ -143,7 +143,7 @@ export default function Header({myItem}){
           </Box>
           <Box sx={{ flexGrow: 0 ,my:1,mx:2}}>
             <Link to="/Login"><Button variant="outlined" size="medium" sx={{color:"black",border:"1px solid black",borderRadius:"15px",padding:"5px 24px"}}>
-              Login
+              LogOut
             </Button></Link>
             <Tooltip title="Your Shop" sx={{marginLeft:"16px"}}>
               <Link to="/Cart"><IconButton>
