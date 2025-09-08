@@ -38,10 +38,13 @@ function App() {
   // L'état est défini ici dans le composant parent
   const [open, setOpen] = useState(false);
   const [loginStatus, setLoginStatus] = useState(null);
+  const [myList,setMyList] =useState( [
+    { id: 1, name: "Amine", Email: "amine@gmail.com", password: "123123" },
+    { id: 2, name: "iman", Email: "iman@gmail.com", password: "000000" },
+    { id: 3, name: "brahim", Email: "brahim@gmail.com", password: "000000" }
+  ]);
+  const [name,setName] = useState("Login");
   const productPaths=['/Men/:productId','/Women/:productId','/Kids/:productId']
-
-
-
 
 
   const handleClose = () => {
@@ -49,6 +52,28 @@ function App() {
     setLoginStatus(null);
   };
 
+
+   const getModalMessages = () => {
+    // Cas pour l'état initial (null)
+    if (loginStatus === null) {
+      return { title: 'Authentification...', description: 'Vérification en cours.' };
+    }
+    
+    if (loginStatus === false) {
+      if(name==="Login"){
+        return { title: 'Échec Login.', description: 'Veuillez vérifier vos informations et réessayer.' };
+      }else{
+        return { title: 'Échec SignUp.', description: 'Please Verify your Information ,"The email aready have" ' };
+      }
+    }else if(loginStatus === true){
+      if(name==="Login"){
+        return { title: 'Login Succès!', description: 'Vous allez être redirigé(e) sous peu.' };
+      }else{
+        return { title: 'SignIn Succès!', description: 'Vous allez être redirigé(e) sous peu.' };
+      }
+    }
+  };
+  const modalMessages = getModalMessages();
   
   return (
     <div className="App">
@@ -66,7 +91,7 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Women" element={<Women />} />
           <Route path="/Kids" element={<Kids />} />
-          <Route path="/Login" element={<Login  setOpen={setOpen} setLoginStatus={setLoginStatus} />} />
+          <Route path="/Login" element={<Login name={name} setName={setName} myList={myList} setMyList={setMyList}  setOpen={setOpen} setLoginStatus={setLoginStatus} />} />
           <Route path="" />
         </Routes></CartProvider>
 
@@ -81,10 +106,10 @@ function App() {
         >
           <Box sx={modalStyle}>
             <Typography id="modal-modal-title" variant="h6" component="h2" sx={{color:loginStatus ? "green" : "red"}}>
-              {loginStatus ? 'Login successful!' : 'Login failed.'}
+              {modalMessages.title}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2,color:loginStatus ? "green" : "red" }}  >
-              {loginStatus ? 'You will be redirected shortly.' : 'Please check your credentials and try again.'}
+              {modalMessages.description}
             </Typography>
           </Box>
         </Modal>

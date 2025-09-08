@@ -12,19 +12,14 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function Login({setLoginStatus,setOpen}){
+export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myList}){
   const navigate=useNavigate()
-  const [name, setName] = useState("Login");
+  // const [name, setName] = useState("Login");
   const [AllInput, setALLInput] = useState({
     name: "",
     Email: "",
     password: "",
   });
-  const myList = [
-    { id: 1, name: "Amine", Email: "amine@gmail.com", password: "123123" },
-    { id: 2, name: "mohammed", Email: "mohammed@gmail.com", password: "000000" },
-    { id: 3, name: "mohammed", Email: "mohammed@gmail.com", password: "000000" }
-  ];
 
   const [ischecked,setIsChecked]=useState(false)
   const handleSignUp = () => {
@@ -49,9 +44,25 @@ export default function Login({setLoginStatus,setOpen}){
           },3000)
         }
     }else{
-      const accountFound=myList.some(event=>
-        event.name===AllInput.name || event.Email===AllInput.Email
-      )
+      const existeEmail=myList.some(event=>event.Email===AllInput.Email)
+      if(existeEmail){
+        setLoginStatus(false);
+        setOpen(true);
+      }else{
+        const newUser={
+          id:myList.length+1,
+          name:AllInput.name,
+          Email:AllInput.Email,
+          password:AllInput.password
+        };
+        setMyList(prevList=>[...prevList,newUser]);
+        setLoginStatus(true);
+        setOpen(true);
+        setTimeout(() => {
+          navigate('/');
+          setOpen(false)
+        },2000);
+      }
     }
     
   };
