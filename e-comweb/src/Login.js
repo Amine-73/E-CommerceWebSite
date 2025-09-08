@@ -6,14 +6,18 @@ import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
-import {useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
-
-export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myList}){
-  const navigate=useNavigate()
+export default function Login({
+  name,
+  setName,
+  setLoginStatus,
+  setOpen,
+  setMyList,
+  myList,
+}) {
+  const navigate = useNavigate();
   // const [name, setName] = useState("Login");
   const [AllInput, setALLInput] = useState({
     name: "",
@@ -21,56 +25,58 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
     password: "",
   });
 
-  const [ischecked,setIsChecked]=useState(false)
+  const [ischecked, setIsChecked] = useState(false);
   const handleSignUp = () => {
-    setName(h => h === "Login" ? "SignUp" : "Login");
+    setName((h) => (h === "Login" ? "SignUp" : "Login"));
   };
 
   const handleCheck = () => {
-    
-    if(name==='Login'){
-        const accountFound = myList.some(user =>
+    if (name === "Login") {
+      const accountFound = myList.some(
+        (user) =>
           user.Email === AllInput.Email && user.password === AllInput.password
-        );
-        // On utilise la prop setLoginStatus pour mettre à jour l'état dans le parent
-        setLoginStatus(accountFound);
-        // On utilise la prop setOpen pour mettre à jour l'état dans le parent
-        setOpen(true);
+      );
+      // On utilise la prop setLoginStatus pour mettre à jour l'état dans le parent
+      setLoginStatus(accountFound);
+      // On utilise la prop setOpen pour mettre à jour l'état dans le parent
+      setOpen(true);
 
-        if(accountFound){
-          setTimeout(()=>{
-            navigate('/');
-            setOpen(false);
-          },3000)
-        }
-    }else{
-      const existeEmail=myList.some(event=>event.Email===AllInput.Email)
-      if(existeEmail){
+      if (accountFound) {
+        setTimeout(() => {
+          navigate("/");
+          setOpen(false);
+        }, 3000);
+      }
+    } else {
+      const existeEmail = myList.some(
+        (event) => event.Email === AllInput.Email
+      );
+      if (existeEmail) {
         setLoginStatus(false);
         setOpen(true);
-      }else{
-        const newUser={
-          id:myList.length+1,
-          name:AllInput.name,
-          Email:AllInput.Email,
-          password:AllInput.password
+      } else {
+        const newUser = {
+          id: myList.length + 1,
+          name: AllInput.name,
+          Email: AllInput.Email,
+          password: AllInput.password,
         };
-        setMyList(prevList=>[...prevList,newUser]);
+        setMyList((prevList) => [...prevList, newUser]);
         setLoginStatus(true);
         setOpen(true);
         setTimeout(() => {
-          navigate('/');
-          setOpen(false)
-        },2000);
+          navigate("/");
+          setOpen(false);
+        }, 2000);
       }
     }
-    
   };
-
 
   return (
     <>
-      <section style={{ height: "auto", background: "#FFB6C1", display: "flex" }}>
+      <section
+        style={{ height: "auto", background: "#FFB6C1", display: "flex" }}
+      >
         <Container>
           <form
             style={{
@@ -80,16 +86,16 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
               padding: "75px 40px",
               borderRadius: "20px",
             }}
-            onSubmit={event => event.preventDefault()}
+            onSubmit={(event) => event.preventDefault()}
           >
             <Grid container spacing={2} sx={{ textAlign: "left" }}>
-              <Grid  sx={{ width: "100%", padding: "10px" }}>
+              <Grid sx={{ width: "100%", padding: "10px" }}>
                 <Typography variant="h3" sx={{ fontWeight: "bold" }}>
                   {name}
                 </Typography>
               </Grid>
               {name !== "Login" && (
-                <Grid  sx={{ width: "100%", padding: "10px" }}>
+                <Grid sx={{ width: "100%", padding: "10px" }}>
                   <TextField
                     sx={{ width: "100%" }}
                     id="first-name"
@@ -103,7 +109,7 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
                   />
                 </Grid>
               )}
-              <Grid  sx={{ width: "100%", padding: "10px" }}>
+              <Grid sx={{ width: "100%", padding: "10px" }}>
                 <TextField
                   sx={{ width: "100%" }}
                   id="Adress-Email"
@@ -113,10 +119,10 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
                   value={AllInput.Email}
                   onChange={(event) => {
                     setALLInput({ ...AllInput, Email: event.target.value });
-                    }}
+                  }}
                 />
               </Grid>
-              <Grid  sx={{ width: "100%", padding: "10px" }}>
+              <Grid sx={{ width: "100%", padding: "10px" }}>
                 <TextField
                   sx={{ width: "100%" }}
                   id="password"
@@ -129,7 +135,7 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
                   }}
                 />
               </Grid>
-              <Grid  sx={{ width: "100%", padding: "10px" }}>
+              <Grid sx={{ width: "100%", padding: "10px" }}>
                 <Button
                   sx={{
                     width: "100%",
@@ -149,7 +155,7 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
                   Continue
                 </Button>
               </Grid>
-              <Grid  sx={{ width: "100%", padding: "10px" }}>
+              <Grid sx={{ width: "100%", padding: "10px" }}>
                 <Typography variant="body1">
                   {" "}
                   {name === "Login"
@@ -167,12 +173,14 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
                   </span>
                 </Typography>
               </Grid>
-              <Grid  sx={{ width: "100%", padding: "10px" }}>
+              <Grid sx={{ width: "100%", padding: "10px" }}>
                 <FormGroup>
                   <FormControlLabel
                     control={<Checkbox />}
                     checked={ischecked}
-                    onChange={e=>{setIsChecked(e.target.checked)}}
+                    onChange={(e) => {
+                      setIsChecked(e.target.checked);
+                    }}
                     label="By continuing, I agree to the Terms of Use & Privacy Policy"
                     required
                   />
@@ -184,4 +192,4 @@ export default function Login({name,setName,setLoginStatus,setOpen,setMyList,myL
       </section>
     </>
   );
-};
+}
