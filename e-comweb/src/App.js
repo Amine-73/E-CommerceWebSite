@@ -5,7 +5,7 @@ import Men from "./Men";
 import Women from "./Women";
 import Kids from "./Kids";
 import Login from "./Login";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Dataproduct from "./AllData/Data";
 import MenProductDetail from "./DataProducts";
 import Cart from "./Cart";
@@ -93,7 +93,7 @@ function App() {
       <Dataproduct.Provider value={myData}>
         <CartProvider>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<LandingPage />} />
             <Route path="/Men" element={<Men />} />
             {productPaths.map((path) => (
               <Route key={path} path={path} element={<MenProductDetail />} />
@@ -102,7 +102,7 @@ function App() {
             <Route path="/Women" element={<Women />} />
             <Route path="/Kids" element={<Kids />} />
             <Route
-              path="/Login"
+              path="/"
               element={
                 <Login
                   name={name}

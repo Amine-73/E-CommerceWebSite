@@ -6,7 +6,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login({
@@ -30,47 +30,78 @@ export default function Login({
     setName((h) => (h === "Login" ? "SignUp" : "Login"));
   };
 
-  const handleCheck = () => {
+  const validateEmail = (email) => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+  console.log(validateEmail("aminemail.com"));
+  function handlCheckInput() {
     if (name === "Login") {
-      const accountFound = myList.some(
-        (user) =>
-          user.Email === AllInput.Email && user.password === AllInput.password
+      return (
+        AllInput.Email.length === 0 ||
+        AllInput.password.trim().length === 0 ||
+        !ischecked
       );
-      // On utilise la prop setLoginStatus pour mettre à jour l'état dans le parent
-      setLoginStatus(accountFound);
-      // On utilise la prop setOpen pour mettre à jour l'état dans le parent
-      setOpen(true);
+    } else {
+      return (
+        AllInput.Email.length === 0 ||
+        AllInput.password.trim().length === 0 ||
+        AllInput.name.trim().length === 0 ||
+        !ischecked
+      );
+    }
+  }
 
-      if (accountFound) {
-        setTimeout(() => {
-          navigate("/");
-          setOpen(false);
-        }, 3000);
+  const handleCheck = () => {
+    if (validateEmail(AllInput.Email)) {
+      if (name === "Login") {
+        const accountFound = myList.some(
+          (user) =>
+            user.Email === AllInput.Email && user.password === AllInput.password
+        );
+        // On utilise la prop setLoginStatus pour mettre à jour l'état dans le parent
+        setLoginStatus(accountFound);
+        // On utilise la prop setOpen pour mettre à jour l'état dans le parent
+        setOpen(true);
+
+        if (accountFound) {
+          setTimeout(() => {
+            navigate("/home");
+            setOpen(false);
+          }, 3000);
+        }
+      } else {
+        const existeEmail = myList.some(
+          (event) => event.Email === AllInput.Email
+        );
+        if (existeEmail) {
+          setLoginStatus(false);
+          setOpen(true);
+        } else {
+          const newUser = {
+            id: myList.length + 1,
+            name: AllInput.name,
+            Email: AllInput.Email,
+            password: AllInput.password,
+          };
+          setMyList((prevList) => [...prevList, newUser]);
+          // localStorage.setItem("newUser",JSON.stringify((prevList) => [...prevList, newUser]))
+          setLoginStatus(true);
+          setOpen(true);
+          setTimeout(() => {
+            navigate("/home");
+            setOpen(false);
+          }, 2000);
+        }
       }
     } else {
-      const existeEmail = myList.some(
-        (event) => event.Email === AllInput.Email
-      );
-      if (existeEmail) {
-        setLoginStatus(false);
-        setOpen(true);
-      } else {
-        const newUser = {
-          id: myList.length + 1,
-          name: AllInput.name,
-          Email: AllInput.Email,
-          password: AllInput.password,
-        };
-        setMyList((prevList) => [...prevList, newUser]);
-        setLoginStatus(true);
-        setOpen(true);
-        setTimeout(() => {
-          navigate("/");
-          setOpen(false);
-        }, 2000);
-      }
+      setLoginStatus(false);
     }
   };
+
+  // useEffect(()=>{
+  //   setMyList(JSON.parse(localStorage.getItem("newUser")))
+  // },[ ])
 
   return (
     <>
@@ -144,12 +175,7 @@ export default function Login({
                   }}
                   type="submit"
                   variant="contained"
-                  disabled={
-                    AllInput.Email.length === 0 ||
-                    AllInput.password.length === 0 ||
-                    (name !== "Login" && AllInput.name.length === 0) ||
-                    !ischecked
-                  }
+                  disabled={handlCheckInput()}
                   onClick={handleCheck}
                 >
                   Continue

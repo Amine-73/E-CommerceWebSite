@@ -19,8 +19,8 @@ export default function Men() {
     if (event.category === "Men") {
       return (
         <Grid key={event.id} size={3}>
-          <Card sx={{ maxWidth: 400, cursor: "pointer" }} >
-            <Link to={`/Men/${event.id}`} >
+          <Card sx={{ maxWidth: 400, cursor: "pointer" }}>
+            <Link to={`/Men/${event.id}`}>
               <CardMedia
                 component="img"
                 height="404"
@@ -59,7 +59,6 @@ export default function Men() {
                   color: "#A9A9A9",
                   fontSize: "19px",
                 }}
-                
               >
                 ${event.heightPrice}
               </Typography>

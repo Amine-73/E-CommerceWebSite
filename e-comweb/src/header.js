@@ -1,44 +1,48 @@
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import AdbIcon from '@mui/icons-material/Adb';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import Badge, { badgeClasses } from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
-import { useEffect, useState,useContext } from 'react';
-import { CartContext } from './Contexts/CartContext';
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import AdbIcon from "@mui/icons-material/Adb";
+import LocalMallIcon from "@mui/icons-material/LocalMall";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import Badge, { badgeClasses } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import { Link } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { CartContext } from "./Contexts/CartContext";
 
-
-  const CartBadge = styled(Badge)`
+const CartBadge = styled(Badge)`
   & .${badgeClasses.badge} {
     top: -12px;
     right: -6px;
-  }`;
+  }
+`;
 
-export default function Header({myItem}){
+export default function Header({ myItem }) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    setIndex(myItem);
+  }, [myItem]);
+  const { totalQuantity, Quantity } = useContext(CartContext);
 
-  
-  const [index,setIndex]=useState(0)
-  useEffect(()=>{
-    setIndex(myItem)
-  },[myItem])
-  const {totalQuantity ,Quantity} = useContext(CartContext);
-  
-
-
-    return (
-        <section style={{borderBottom:"1px solid #A9A9A9",background:"#ffff",position:"fixed",width:"100%",zIndex:"99"}}>
-        <Container maxWidth="xl">
-        <Toolbar disableGutters >
-          <LocalMallIcon  sx={{fontSize:"27px"}}/>
+  return (
+    <section
+      style={{
+        borderBottom: "1px solid #A9A9A9",
+        background: "#ffff",
+        position: "fixed",
+        width: "100%",
+        zIndex: "99",
+      }}
+    >
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
+          <LocalMallIcon sx={{ fontSize: "27px" }} />
           <Typography
             variant="h4"
             noWrap
@@ -46,51 +50,48 @@ export default function Header({myItem}){
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-              marginLeft:"10px",
-              color:"black",
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+              marginLeft: "10px",
+              color: "black",
             }}
           >
             SHOPPER
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-            //   onClick={handleOpenNavMenu}
+              //   onClick={handleOpenNavMenu}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
-            //   anchorEl={anchorElNav}
+              //   anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
-            //   open={Boolean(anchorElNav)}
-            //   onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-            
-              
-            </Menu>
+              //   open={Boolean(anchorElNav)}
+              //   onClose={handleCloseNavMenu}
+              sx={{ display: { xs: "block", md: "none" } }}
+            ></Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -98,65 +99,124 @@ export default function Header({myItem}){
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          ></Typography>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            
-          </Typography>
-          <Box sx={{ flexGrow: 1, display:"flex" ,alignItems:"center",justifyContent:"center"}}>
-            
-              <Button
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
+            <Button
+              // key={page}
+              // onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                mx: 2,
+                color: "black",
+                display: "block",
+                fontSize: "20px",
+              }}
+            >
+              <Link
+                to="/home"
+                style={{ textDecoration: "none", color: "#000" }}
               >
-                <Link to='/' style={{textDecoration:"none",color:"#000"}}>Shop</Link> 
-              </Button>
-              <Button
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ my: 2,mx:2,color: 'black', display: 'block' ,fontSize:"20px"}}
+                Shop
+              </Link>
+            </Button>
+            <Button
+              // key={page}
+              // onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                mx: 2,
+                color: "black",
+                display: "block",
+                fontSize: "20px",
+              }}
+            >
+              <Link to="/Men" style={{ textDecoration: "none", color: "#000" }}>
+                Men
+              </Link>
+            </Button>
+            <Button
+              // key={page}
+              // onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                mx: 2,
+                color: "black",
+                display: "block",
+                fontSize: "20px",
+              }}
+            >
+              <Link
+                to="/WoMen"
+                style={{ textDecoration: "none", color: "#000" }}
               >
-                <Link to='/Men' style={{textDecoration:"none",color:"#000"}}>Men</Link> 
-              </Button>
-              <Button
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
+                Women
+              </Link>
+            </Button>
+            <Button
+              // key={page}
+              // onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                mx: 2,
+                color: "black",
+                display: "block",
+                fontSize: "20px",
+              }}
+            >
+              <Link
+                to="/Kids"
+                style={{ textDecoration: "none", color: "#000" }}
               >
-                <Link to='/WoMen' style={{textDecoration:"none",color:"#000"}}>Women</Link> 
-              </Button>
-              <Button
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ my: 2,mx:2, color: 'black', display: 'block',fontSize:"20px" }}
-              >
-                <Link to='/Kids' style={{textDecoration:"none",color:"#000"}}>Kids</Link> 
-              </Button>
-            
+                Kids
+              </Link>
+            </Button>
           </Box>
-          <Box sx={{ flexGrow: 0 ,my:1,mx:2}}>
-            <Link to="/Login"><Button variant="outlined" size="medium" sx={{color:"black",border:"1px solid black",borderRadius:"15px",padding:"5px 24px"}}>
-              LogOut
-            </Button></Link>
-            <Tooltip title="Your Shop" sx={{marginLeft:"16px"}}>
-              <Link to="/Cart"><IconButton>
-                <ShoppingCartOutlinedIcon fontSize="medium" />
-                
-                <CartBadge badgeContent={totalQuantity} color="primary" overlap="circular" />
-                
-              </IconButton></Link>
+          <Box sx={{ flexGrow: 0, my: 1, mx: 2 }}>
+            <Link to="/">
+              <Button
+                variant="outlined"
+                size="medium"
+                sx={{
+                  color: "black",
+                  border: "1px solid black",
+                  borderRadius: "15px",
+                  padding: "5px 24px",
+                }}
+              >
+                LogOut
+              </Button>
+            </Link>
+            <Tooltip title="Your Shop" sx={{ marginLeft: "16px" }}>
+              <Link to="/Cart">
+                <IconButton>
+                  <ShoppingCartOutlinedIcon fontSize="medium" />
+
+                  <CartBadge
+                    badgeContent={totalQuantity}
+                    color="primary"
+                    overlap="circular"
+                  />
+                </IconButton>
+              </Link>
             </Tooltip>
-            
           </Box>
         </Toolbar>
       </Container>
-        </section>
-    )
+    </section>
+  );
 }
