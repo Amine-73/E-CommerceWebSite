@@ -39,13 +39,13 @@ export default function Login({
     if (name === "Login") {
       return (
         AllInput.Email.length === 0 ||
-        AllInput.password.trim().length === 0 ||
+        AllInput.password.trim().length <= 4 ||
         !ischecked
       );
     } else {
       return (
         AllInput.Email.length === 0 ||
-        AllInput.password.trim().length === 0 ||
+        AllInput.password.trim().length >= 4 ||
         AllInput.name.trim().length === 0 ||
         !ischecked
       );
@@ -84,8 +84,9 @@ export default function Login({
             Email: AllInput.Email,
             password: AllInput.password,
           };
-          setMyList((prevList) => [...prevList, newUser]);
-          // localStorage.setItem("newUser",JSON.stringify((prevList) => [...prevList, newUser]))
+          const updateList = [...myList, newUser];
+          setMyList(updateList);
+          localStorage.setItem("myList", JSON.stringify(updateList));
           setLoginStatus(true);
           setOpen(true);
           setTimeout(() => {
@@ -98,10 +99,6 @@ export default function Login({
       setLoginStatus(false);
     }
   };
-
-  // useEffect(()=>{
-  //   setMyList(JSON.parse(localStorage.getItem("newUser")))
-  // },[ ])
 
   return (
     <>

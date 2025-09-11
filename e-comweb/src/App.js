@@ -86,6 +86,12 @@ function App() {
       }
     }
   };
+
+  useEffect(() => {
+    const storageList = JSON.parse(localStorage.getItem("myList"));
+    setMyList(storageList);
+  }, []);
+
   const modalMessages = getModalMessages();
 
   return (
