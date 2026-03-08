@@ -31,10 +31,6 @@ export default function Product() {
     return <div>Product not found.</div>;
   }
 
-  // useEffect(()=>{
-  //   const  MyProduct=MenData.find((e)=>e.id===productId);
-  //   setMyProduct(foundProduct);
-  // },[ ])
   const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
     gap: "2rem",
     [`& .${toggleButtonGroupClasses.firstButton}, & .${toggleButtonGroupClasses.middleButton}`]:
@@ -56,11 +52,6 @@ export default function Product() {
       },
   }));
 
-  // const [item,setItem]=useState(0);
-
-  // function handlAddItem(){
-  //   setItem(a=>a+1)
-  // }
 
   return (
     <>

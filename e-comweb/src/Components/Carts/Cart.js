@@ -146,7 +146,7 @@ const Cart = () => {
                   colSpan={3}
                   style={{ fontWeight: "bold", fontSize: "20px" }}
                 >
-                  Total
+                  Total Price
                 </div>
               </Grid>
               <Grid size={3}>

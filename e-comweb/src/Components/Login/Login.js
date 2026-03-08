@@ -34,18 +34,16 @@ export default function Login({
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
   };
-  console.log(validateEmail("aminemail.com"));
+
   function handlCheckInput() {
+    const isPasswordValid = AllInput.password.trim().length < 6;
+    const isEmailValid = AllInput.Email.length === 0;
     if (name === "Login") {
-      return (
-        AllInput.Email.length === 0 ||
-        AllInput.password.trim().length <= 4 ||
-        !ischecked
-      );
+      return isEmailValid || isPasswordValid || !ischecked;
     } else {
       return (
-        AllInput.Email.length === 0 ||
-        AllInput.password.trim().length >= 4 ||
+        isEmailValid ||
+        isPasswordValid ||
         AllInput.name.trim().length === 0 ||
         !ischecked
       );
@@ -53,9 +51,10 @@ export default function Login({
   }
 
   const handleCheck = () => {
+    const safeList = myList || [];
     if (validateEmail(AllInput.Email)) {
       if (name === "Login") {
-        const accountFound = myList.some(
+        const accountFound = safeList.some(
           (user) =>
             user.Email === AllInput.Email && user.password === AllInput.password
         );
@@ -71,7 +70,7 @@ export default function Login({
           }, 3000);
         }
       } else {
-        const existeEmail = myList.some(
+        const existeEmail = safeList.some(
           (event) => event.Email === AllInput.Email
         );
         if (existeEmail) {
@@ -79,12 +78,12 @@ export default function Login({
           setOpen(true);
         } else {
           const newUser = {
-            id: myList.length + 1,
+            id: safeList.length + 1,
             name: AllInput.name,
             Email: AllInput.Email,
             password: AllInput.password,
           };
-          const updateList = [...myList, newUser];
+          const updateList = [...safeList, newUser];
           setMyList(updateList);
           localStorage.setItem("myList", JSON.stringify(updateList));
           setLoginStatus(true);

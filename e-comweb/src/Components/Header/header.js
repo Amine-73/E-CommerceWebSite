@@ -35,9 +35,10 @@ export default function Header({ myItem }) {
       style={{
         borderBottom: "1px solid #A9A9A9",
         background: "#ffff",
-        position: "fixed",
+        position:"fixed",
         width: "100%",
         zIndex: "99",
+        top:0,
       }}
     >
       <Container maxWidth="xl">

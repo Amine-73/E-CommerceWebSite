@@ -1,8 +1,4 @@
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import Typography from "@mui/material/Typography";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -12,7 +8,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
   return (
-    <>
+    <center>
       <Container maxWidth="xl">
         <div
           style={{
@@ -136,6 +132,6 @@ export default function Footer() {
           Copyright @ 2023 -All Right Reserved ,Created By Mr AMINE CHANNA{" "}
         </small>
       </Container>
-    </>
+    </center>
   );
 }

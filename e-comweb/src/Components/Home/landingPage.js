@@ -91,7 +91,7 @@ export default function LandingPage() {
                 height="404"
                 image={t.image}
                 alt="Clothes"
-                // style={{backgroundImage:`url()`}}
+                
               />
             </Link>
             <CardContent>
@@ -121,7 +121,7 @@ export default function LandingPage() {
                   fontSize: "19px",
                 }}
               >
-                {t.lowPrice}
+                ${t.lowPrice}
               </Typography>
               <Typography
                 sx={{
@@ -131,7 +131,7 @@ export default function LandingPage() {
                   fontSize: "19px",
                 }}
               >
-                {t.heightPrice}
+                ${t.heightPrice}
               </Typography>
             </div>
           </Card>

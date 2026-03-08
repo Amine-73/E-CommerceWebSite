@@ -77,7 +77,7 @@ export default function Women() {
   return (
     <>
       <Header />
-      <Container maxWidth="xl" sx={{ display: "inline-block" }}>
+      <Container maxWidth="xl" >
         <section style={{ marginTop: "90px" }}>
           <Card
             sx={{
